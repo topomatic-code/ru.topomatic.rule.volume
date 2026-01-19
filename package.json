@@ -1,0 +1,61 @@
+{
+    "$schema": "node_modules/albatros/schema.json",
+    "name": "ru.topomatic.rule.volume",
+    "displayName": "Проверка объёмов",
+    "description": "Плагин для проверки соответствия геометрии объёмов с данными указанными в свойствах",
+    "version": "1.0.0",
+    "main": "src/index.ts",
+    "scripts": {
+        "serve": "albatros-cli serve",
+        "build": "albatros-cli build"
+    },
+    "keywords": [
+        "category::rule"
+    ],
+    "author": {
+        "name": "ООО НПФ \"Топоматик\"",
+        "email": "support@topomatic.ru",
+        "url": "https://topomatic.ru"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/topomatic-code/ru.topomatic.rule.volume.git"
+    },
+    "icon": "favicon",
+    "license": "MIT",
+    "homepage": "https://topomatic-code.github.io/ru.topomatic.rule.volume/",
+    "devDependencies": {
+        "albatros": "^1.3.1"
+    },
+    "albatros": {
+        "rules": {
+            "volume3d": {
+                "app": "wdx",
+                "title": "Объёмы 3d",
+                "cmd": "volume3d",
+                "description": "Правило проверки соответствия расчётного значения 3d объёма и значения указанного в свойстве"
+            }
+        },
+        "properties": {
+            "volume3d": [
+                {
+                    "cmd": "ru.albatros.wdx/property:filter",
+                    "label": "Фильтр",
+                    "field": "filter",
+                    "description": "Фильтр объектов к которым применяется правило"
+                },
+                {
+                    "cmd": "property:field",
+                    "label": "Название свойства",
+                    "description": "Название свойства в котором хранится значение объёма"
+                },
+                {
+                    "cmd": "property:tolerance",
+                    "label": "Допуск",
+                    "field": "tolerance",
+                    "description": "Допуск с которым проверяется значение объёма, в процентах"
+                }
+            ]
+        }
+    }
+}
